@@ -1,75 +1,47 @@
-<?php include("db.php") ?>
-<?php include("includes/header.php") ?>
+<?php include('db.php') ?>
+<?php include('includes/header.php') ?>
 
- <div class="container p-4">
-     <div class="row">
+<style>
 
-         <div class="col-md-4">
+    .minhaClasse{
+       margin: 0 auto;
+    }
 
-             <?php if(isset($_SESSION['msg'])) { ?>
-                 <div class="alert alert-<?= $_SESSION['msg_type']; ?> alert-dismissible fade show" role="alert">
-                 <?= $_SESSION['msg'] ?>
-                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                 <span aria-hidden="true">&times;</span>
-                 </button>
-                 </div>
-             <?php session_unset(); } ?>
+</style>
 
-             <div class="card card-body">
-                 <form action="save.php"  method="POST">
-                     <div class="form-group">
-                         <input type="text" name="marca" class="form-control" placeholder="Marca do Salgadinho" autofocus>
-                     </div>
-                     <div class="form-group">
-                         <input type="text" name="sabor" class="form-control" placeholder="Sabor do Salgadinho" autofocus>
-                     </div>
-                     <div class="form-group">
-                         <input type="text" name="peso" class="form-control" placeholder="Peso do Salgadinho" autofocus>
-                     </div>
-                     <input type="submit" class="btn btn-success btn-block" name="save" value="Adicionar">
-                 </form>
-             </div>
-         </div>
+<div class="container-fluid p-6  col-md-5 ">
+    <div class="card card body mt-5 col-md-5 minhaClasse" style="background-color: dodgerblue; color: white; font-family: 'Century Gothic'">
 
-         <div class="col-md-8">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Marca</th>
-                            <th>Sabor</th>
-                            <th>Gramas</th>
-                            <th>Data adquirida</th>
-                            <th>Opções</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                            $query = "SELECT * FROM salgadinho";
-                            $result_salgadinhos = mysqli_query($conn, $query);
+        <form action="login.php" method="POST">
+            <div class="form-group" >
+                <p style="text-align: center; color: white; font-family: 'Century Gothic'; font-size: 25px">Login</p>
+                <div>
+                    <label for="email"> E-mail </label>
+                </div>
 
-                            while($row = mysqli_fetch_array($result_salgadinhos)) { ?>
-                                <tr>
-                                    <td><?php echo $row['marca'] ?></td>
-                                    <td><?php echo $row['sabor'] ?></td>
-                                    <td><?php echo $row['peso'] ?></td>
-                                    <td><?php echo $row['created_at'] ?></td>
-                                    <td>
-                                        <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-secondary">
-                                            <i class="fas fa-marker"></i>
-                                        </a>
-                                        <a href="delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger">
-                                            <i class="far fa-trash-alt"></i>
-                                        </a>
-                                    </td>
+                <div>
+                    <input name="email" type="email" class="form-control" placeholder="exemple@mail" autofocus>
+                </div>
 
-                                </tr>
-                            <?php } ?>
+            </div>
+            <div class="form-group">
+                <div>
+                    <label for="senha"> Senha </label>
+                </div>
 
-                    </tbody>
-                </table>
-         </div>
+                <div >
+                    <input name="senha" type="password" class="form-control"  placeholder="Digite sua senha!" autofocus>
+                </div>
 
-     </div>
- </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-danger btn-block" value="Entrar">
+            </div>
+        </form>
+    </div>
+</div>
 
-<?php include("includes/footer.php")?>
+
+
+<?php include('includes/footer.php') ?>
+

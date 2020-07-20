@@ -16,6 +16,6 @@ if(isset($_POST['save'])){
         $_SESSION['msg'] = 'Salgadinho adicionado!';
         $_SESSION['msg_type'] = 'success';
 
-        header("Location: index.php");
+        header("Location: cadastro.php");
 
 }

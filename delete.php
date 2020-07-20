@@ -10,5 +10,5 @@ if(isset($_GET['id'])) {
 
     $_SESSION['msg'] = 'Salgadinho Removido';
     $_SESSION['msg_type'] = 'danger';
-    header("Location: index.php");
+    header("Location: cadastro.php");
 }

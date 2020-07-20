@@ -23,7 +23,7 @@ if(isset($_GET['id'])) {
 
         $_SESSION['msg'] = 'Salgadinho Atualizado!';
         $_SESSION['msg_type'] = 'primary';
-        header("Location: index.php");
+        header("Location: cadastro.php");
 
     }
 
